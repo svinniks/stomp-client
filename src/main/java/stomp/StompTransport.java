@@ -1,6 +1,8 @@
 package stomp;
 
+import java.util.function.Consumer;
+
 public interface StompTransport {
-    void send(String frame);
-    void receive(String frame);
+    void sendFrame(String frame);
+    void setEventHandlers(Consumer<String> receiveFrame, Runnable disconnect);
 }
